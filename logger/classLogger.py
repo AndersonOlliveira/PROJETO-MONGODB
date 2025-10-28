@@ -43,17 +43,3 @@ logger_finalizar.addHandler(file_handler_finalizar)
 stream_handler_finalizar = logging.StreamHandler(sys.stdout)
 stream_handler_finalizar.setFormatter(formatter)
 logger_finalizar.addHandler(stream_handler_finalizar)
-
-# ==========================================================
-# Configuração do Logger 'progestor_proscore_finalizar_erro'
-# ==========================================================
-
-# Handler de arquivo para o segundo logger (NOVO ARQUIVO!)
-file_handler_finalizar_erro = logging.FileHandler('arquivos_/progestor_proscore_finalizar_erro.log')
-file_handler_finalizar_erro.setFormatter(formatter)
-logger_finalizar_erro.addHandler(file_handler_finalizar_erro)
-
-# Handler de console para o segundo logger
-stream_handler_erro = logging.StreamHandler(sys.stdout)
-stream_handler_erro.setFormatter(formatter)
-logger_finalizar_erro.addHandler(stream_handler_erro)

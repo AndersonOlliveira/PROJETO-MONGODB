@@ -8,14 +8,21 @@
 
 # .\.venv\Scripts\Activate.ps1\
 
-from classLogger import logger_finalizar
+from logger.classLogger import logger_finalizar
 import time
 import datetime
-
+import conection.conexao_mongo import 
 def main():
-     
-    logger_finalizar.info(f"[{time.strftime('%H:%M:%S')}] Iniciando loop contínuo...")
-
+    
+     logger_finalizar.info(f"[{time.strftime('%H:%M:%S')}] Iniciando teste para inserir dados e conexao com o mongodb...")
+     bd = Client.get_database('progesto_Colletion')
+     print(f"meu data base{bd}")
+     colecao = bd.get_collection('progestor_transaction')
+     dado = {
+    "nome": "anderson Oliveira araujo",
+    "telefone":"19971101711"
+    }
+     colecao.insert_one(dado)
 
 
 if __name__ == "__main__":
