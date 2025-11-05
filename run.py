@@ -11,13 +11,14 @@ print(f" minha conexao {conn}")
 if conn:
     db = conn.get_db_connection()
     collection = db.get_collection(conn.get_db_colletion())
+    collection_json = db.get_collection(conn.get_db_colletion_json())
     connection = db
-    print(f"Collection: {collection.name}")
+    print(f" Minha Collection: {collection_json.name}")
     print(f"--"*20)
     print(f"Conexao: {db}")
     
 
-    colletion_repository = Coletion(collection.name,db)
+    colletion_repository = Coletion(collection.name,db,collection_json.name)
     
 
     order = {
@@ -32,7 +33,7 @@ if conn:
 
 
     #chamo a funcao request
-    result_request = request_all(dados_,collection.name,db)
+    result_request = request_all(dados_,collection.name,db,collection_json.name)
 
 
 

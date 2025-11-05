@@ -13,10 +13,10 @@ arquivo_saida = 'arquivos/saida_request.csv'
 # dados_ = pd.read_csv(arquivo_entrada, sep=';', header=None)
 
 
-def request_all(dados_,name,db):
+def request_all(dados_,name,db,name_json):
     resultados = []
 
-    colletion_repository = Coletion(name,db)
+    colletion_repository = Coletion(name,db,name_json)
 
     for index, row in dados_.iterrows():
         cpf = str(row[0]).strip()

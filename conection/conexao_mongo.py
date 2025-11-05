@@ -10,6 +10,7 @@ MONGO_HOST = os.getenv('BD_MONGO_HOST')
 MONGO_PORT = os.getenv('BD_MONGO_PORT')   
 MONGO_DB_NAME = os.getenv('BD_MONGO_BD_NAME')   
 MONGO_DB_COLLE = os.getenv('BD_MONGO_BD_COLLETION')   
+MONGO_DB_COLLE_JSON = os.getenv('BD_MONGO_BD_COLLETION_JSON')   
 
 MONGO_URI_AUTH = f"mongodb://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}:{MONGO_PORT}/"
 
@@ -35,6 +36,7 @@ class DBMongoManager:
           self.__client = None
           self.__db_connection_name = None
           self.__db_name_colletion = MONGO_DB_COLLE
+          self.__db_name_colletion_json = MONGO_DB_COLLE_JSON
 
           
 
@@ -57,7 +59,9 @@ class DBMongoManager:
       def get_db_client(self):
             return self.__client
       def get_db_colletion(self):
-            return self.__db_name_colletion
+            return self.__db_name_colletion 
+      def get_db_colletion_json(self):
+            return self.__db_name_colletion_json
         
 
 # Client = MongoClient(f"mongodb+srv://{os.getenv("BD_MONGO_USER")}:{os.getenv("BD_MONGO_PASS")}@cluster0.pdkxk52.mongodb.net/")

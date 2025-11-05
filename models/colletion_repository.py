@@ -4,13 +4,14 @@ from typing import Dict,List
 
 class Coletion:
     
-    def __init__(self,db_colletion,db_connection) -> None:
+    def __init__(self,db_colletion,db_connection,db_colletion_json) -> None:
         self.__name_colletion = db_colletion
+        self.__name_colletion_json = db_colletion_json
         self.__db_connection = db_connection
 
    
     def insert_document(self,document: Dict) -> Dict:
-        collection = self.__db_connection.get_collection(self.__name_colletion)
+        collection = self.__db_connection.get_collection(self.__name_colletion_json)
         result = collection.insert_one(document)
         document['_id'] = result.inserted_id
         return document 
